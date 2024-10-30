@@ -1,6 +1,6 @@
 #!make
 
-SERVICE_NAME=mysql
+SERVICE_NAME=gestion_mantenimiento_db
 FRONTEND_SERVICE_NAME=gestion_mantenimiento_frontend
 BACKEND_SERVICE_NAME=gestion_mantenimiento_backend
 

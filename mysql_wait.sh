@@ -9,7 +9,7 @@ else
 fi
 
 # Wait until MySQL is ready
-until docker exec -it mysql mysql -u"$MYSQL_USER" -p"$MYSQL_ROOT_PASSWORD" -e "\q"
+until docker exec -it gestion_mantenimiento_db mysql -u"$MYSQL_USER" -p"$MYSQL_ROOT_PASSWORD" -e "\q"
 do
     echo "Waiting for MySQL to be ready..."
     sleep 2
