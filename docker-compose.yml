@@ -1,0 +1,55 @@
+# gestion_mantenimiento/docker-compose.yml
+version: '3.8'
+
+services:
+  # Servicio de base de datos MySQL
+  db:
+    image: mysql:8.0
+    container_name: gestion_mantenimiento_db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DB}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - gestion_network
+
+  # Servicio de backend (Flask)
+  backend:
+    build: ./backend
+    container_name: gestion_mantenimiento_backend
+    env_file: ./backend/.env
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    networks:
+      - gestion_network
+    volumes:
+      - ./backend:/app
+
+  # Servicio de frontend (React)
+  frontend:
+    build: ./frontend
+    container_name: gestion_mantenimiento_frontend
+    env_file: ./frontend/.env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - gestion_network
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+networks:
+  gestion_network:
+    driver: bridge
+
+volumes:
+  db_data:

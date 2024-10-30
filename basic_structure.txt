@@ -1,0 +1,24 @@
+gestion_mantenimiento/
+├── README.md
+├── docker-compose.yml
+├── .env
+├── db/
+│   ├── init.sql
+├── backend/
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   ├── .env
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   ├── models.py
+│   │   ├── routes.py
+│   │   ├── utils.py
+│   │   ├── auth/
+│   │   ├── tests/
+├── frontend/
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── .env
+│   ├── public/
+│   └── src/

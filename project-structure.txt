@@ -1,0 +1,47 @@
+gestion_mantenimiento/
+├── README.md                  # Documentación general del proyecto
+├── docker-compose.yml         # Archivo para gestionar los contenedores de Docker
+├── .env                       # Variables de entorno globales (si es necesario)
+├── db/                        
+│   ├── init.sql               # Script para la creación y carga inicial de la base de datos
+├── backend/
+│   ├── Dockerfile             # Dockerfile para contenerizar el backend en Flask
+│   ├── requirements.txt       # Dependencias de Python
+│   ├── .env                   # Variables de entorno específicas para el backend
+│   ├── app/
+│   │   ├── __init__.py        # Inicialización de Flask y carga de configuración
+│   │   ├── config.py          # Configuración de Flask (carga de variables de entorno)
+│   │   ├── models.py          # Definición de los modelos de base de datos (SQLAlchemy)
+│   │   ├── routes.py          # Definición de rutas y lógica de los endpoints
+│   │   ├── utils.py           # Funciones de utilidad para la API
+│   │   ├── tests/
+│   │   │   ├── test_auth.py       # Pruebas para el módulo de autenticación
+│   │   │   ├── test_mantenimiento.py # Pruebas para los endpoints de mantenimiento
+│   │   │   └── ...
+│   │   └── auth/
+│   │       ├── __init__.py    # Lógica de autenticación y gestión de sesiones
+│   │       └── decorators.py  # Decoradores para el control de acceso
+├── frontend/
+│   ├── Dockerfile             # Dockerfile para contenerizar el frontend en React
+│   ├── package.json           # Dependencias de Node.js
+│   ├── .env                   # Variables de entorno específicas para el frontend
+│   ├── public/
+│   │   ├── index.html         # HTML principal
+│   └── src/
+│       ├── App.js             # Componente principal de la aplicación
+│       ├── index.js           # Punto de entrada de React
+│       ├── api/
+│       │   └── apiService.js  # Servicios de conexión a la API
+│       ├── components/
+│       │   ├── Login.js       # Componente de inicio de sesión
+│       │   ├── Dashboard.js   # Componente de visualización principal
+│       │   ├── MaintenanceForm.js # Componente para crear órdenes de mantenimiento
+│       │   └── ...
+│       ├── hooks/
+│       │   └── useAuth.js     # Hook para manejar la autenticación
+│       ├── context/
+│       │   └── AuthContext.js # Contexto para la autenticación
+│       └── tests/
+│           ├── App.test.js    # Prueba unitaria del componente principal
+│           ├── Login.test.js  # Prueba unitaria del componente de Login
+│           └── ...
